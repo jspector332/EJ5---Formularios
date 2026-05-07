@@ -17,9 +17,12 @@ public class HomeController : Controller
     public IActionResult Verificar(int edad, string estadoLaboral, int ingresoEconomico,int monto, string poseeDeudas,string confirmacion)
     {
         if(edad>= 18 && estadoLaboral =="si" && ingresoEconomico>= 250000 && monto > (ingresoEconomico*5) && poseeDeudas=="no" && confirmacion == "aceptar"){
-            
+            return View("Aceptado");
         }
-        return View();
+        else{
+              return View("Rechazado");
+        }
+      
     }
 
     public IActionResult Index()
